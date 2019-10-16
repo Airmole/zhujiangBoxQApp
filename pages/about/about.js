@@ -25,7 +25,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function (options) {
     var that = this;
     that.setData({
       width: wx.getSystemInfoSync().windowWidth * 0.9 + 'px',
@@ -35,14 +35,14 @@ Page({
       scrollTop: 1600,
       duration: 4000,
     })
-    setTimeout(function() {
+    setTimeout(function () {
       wx.pageScrollTo({
         scrollTop: 0,
         duration: 300,
       })
     }, 4000);
   },
-  copyID: function() {
+  copyID: function () {
     wx.setClipboardData({
       data: 'wxf0ba93e3faff4eda'
     })
@@ -55,10 +55,10 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {
+  onShareAppMessage: function () {
 
   },
-  goShellBox: function() {
+  goShellBox: function () {
     qq.navigateToMiniProgram({
       appId: '1109608669',
       success(res) {
@@ -66,10 +66,16 @@ Page({
       }
     })
   },
-  joinQQGroup:function(){
+  joinQQGroup: function () {
     wx.previewImage({
       current: 'https://z4a.net/images/2019/10/16/TIM20191016143127.jpg', // 当前显示图片的http链接
       urls: ['https://z4a.net/images/2019/10/16/TIM20191016143127.jpg'] // 需要预览的图片http链接列表
+    })
+  },
+  showQRCode: function () {
+    wx.previewImage({
+      current: 'https://z4a.net/images/2019/10/16/1c3caf03f6494553a7ca1340fadd5ef8.png', // 当前显示图片的http链接
+      urls: ['https://z4a.net/images/2019/10/16/1c3caf03f6494553a7ca1340fadd5ef8.png'] // 需要预览的图片http链接列表
     })
   }
 })

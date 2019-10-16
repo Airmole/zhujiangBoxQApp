@@ -6,19 +6,25 @@ Page({
     stuInfo: '',
     isLoading: true,
   },
-  onLoad: function() {
+  onLoad: function () {
     var that = this;
     var stuInfo = wx.getStorageSync('stuInfo');
     that.setData({
       stuInfo: stuInfo
     })
   },
-  onReady: function() {
+  onReady: function () {
     var that = this;
-    setTimeout(function() {
+    setTimeout(function () {
       that.setData({
         isLoading: false
       });
     }, 2000);
+  },
+  logout: function () {
+    wx.clearStorage();
+    wx.reLaunch({
+      url: '/pages/index/index'
+    })
   }
-});
+  });
