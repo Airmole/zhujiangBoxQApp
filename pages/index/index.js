@@ -74,7 +74,7 @@ Page({
     }
   },
   goShellBox: function () {
-    qq.navigateToMiniProgram({
+    wx.navigateToMiniProgram({
       appId: '1109608669',
       success(res) {
         // 打开成功

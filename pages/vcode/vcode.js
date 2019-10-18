@@ -12,7 +12,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function (options) {
     var that = this;
     if (Object.keys(options.to) == 0) {
       wx.redirectTo({
@@ -40,11 +40,11 @@ Page({
 
     that.getVcode();
   },
-  getVcode: function() {
+  getVcode: function () {
     var that = this;
     wx.request({
       url: 'https://api.airmole.cn/zhujiangBox/getCookie.php',
-      success: function(res) {
+      success: function (res) {
         console.log(res.data);
         that.setData({
           PreInfo: res.data,
@@ -59,7 +59,7 @@ Page({
       }
     });
   },
-  submitInfo: function(e) {
+  submitInfo: function (e) {
     wx.showToast({
       title: "loading...",
       icon: "loading",

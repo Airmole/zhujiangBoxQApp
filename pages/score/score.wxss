@@ -3,6 +3,7 @@
 
 Page {
   background-color: #7acfa6;
+   touch-action: default;
 }
 .page__hd {
   padding: 40px;
@@ -212,35 +213,39 @@ button::after {
 }
 /* pages/score/score.wxss */
 /* 表格代码   */
-.table{
-  border:1px solid #dadada;
-  border-right:0;
+.table {
+  border: 1px solid #dadada;
+  border-right: 0;
   border-bottom: 0;
   width: 98%;
   margin-left: 1%;
 }
-.tr{
-  width:100%;
+.tr {
+  width: 100%;
   display: flex;
   justify-content: space-between;
 }
-.th,.td{
+.th,
+.td {
   padding: 10px;
   border-bottom: 1px solid #dadada;
   border-right: 1px solid #dadada;
   text-align: center;
   width: 100%;
 }
-.th1,.th2,.td1,.td2{
+.th1,
+.th2,
+.td1,
+.td2 {
   width: 30%;
 }
-.th{
+.th {
   font-weight: 800;
   background-color: #7acfa6;
   font-size: 28rpx;
   color: #eee;
 }
-.td{
+.td {
   font-size: 20rpx;
   color: #333;
 }

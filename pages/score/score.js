@@ -17,6 +17,7 @@ Page({
     isLoading: true,
     showGraphic: true,
     painting: {},
+    shareBtn: true,
     shareImage: ''
   },
   /**
@@ -26,6 +27,16 @@ Page({
 
     var that = this;
     console.log(options);
+
+    wx.getSystemInfo({
+      success(res) {
+        if (res.system.indexOf('iOS') >= 0) {
+          that.setData({
+            shareBtn: false,
+          })
+        }
+      }
+    })
 
     var uid = wx.getStorageSync('uid');
     var pwd = wx.getStorageSync('newpwd');
@@ -55,6 +66,7 @@ Page({
     } else {
       that.GetScoreData(uid, pwd, cookie, vcode);
     }
+
   },
   /**
    * 查询成绩
@@ -97,13 +109,10 @@ Page({
             wx.showToast({
               title: res.data.desc,
               icon: "none",
-              duration: 2000
             })
-            setTimeout(function () {
-              wx.redirectTo({
-                url: '/pages/vcode/vcode?to=score&update=0'
-              })
-            }, 2000);
+            wx.redirectTo({
+              url: '/pages/vcode/vcode?to=score&update=1'
+            })
             return;
           }
           that.setData({
@@ -153,7 +162,7 @@ Page({
     var categories = [];
     var data1 = [];
     var data2 = [];
-    var scoreJson = this.data.jsonContent;
+    var scoreJson = that.data.jsonContent;
     if (scoreJson.length < 2) {
       console.log("scoreJson.length==" + scoreJson.length);
       that.setData({
@@ -273,19 +282,19 @@ Page({
     } else {
       userNickName = '';
     }
-       let nickName = {
-        type: 'text',
-        content: userNickName,
-        fontSize: 26,
-        color: '#000',
-        textAlign: 'center',
-        top: 350,
-        left: 300,
-        lineHeight: 20,
-        MaxLineNumber: 1,
-        breakWord: true,
-        width: 160
-      };
+    let nickName = {
+      type: 'text',
+      content: userNickName,
+      fontSize: 26,
+      color: '#000',
+      textAlign: 'center',
+      top: 350,
+      left: 300,
+      lineHeight: 20,
+      MaxLineNumber: 1,
+      breakWord: true,
+      width: 160
+    };
 
 
     var newArr = [];
